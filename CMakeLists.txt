@@ -15,8 +15,7 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Quick)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
     Core
     Quick
-    QuickControls2     # ← добавлено
-    QuickLayouts       # ← добавлено
+    QuickControls2
 )
 
 set(PROJECT_SOURCES
@@ -44,8 +43,7 @@ target_compile_definitions(QtQuickProcIonosphere
 target_link_libraries(QtQuickProcIonosphere PRIVATE
     Qt${QT_VERSION_MAJOR}::Core
     Qt${QT_VERSION_MAJOR}::Quick
-    Qt${QT_VERSION_MAJOR}::QuickControls2    # ← добавлено
-    Qt${QT_VERSION_MAJOR}::QuickLayouts      # ← добавлено
+    Qt${QT_VERSION_MAJOR}::QuickControls2
 )
 
 set_target_properties(QtQuickProcIonosphere PROPERTIES
