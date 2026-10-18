@@ -32,7 +32,7 @@ else()
     if(ANDROID)
         add_library(QtQuickProcIonosphere SHARED ${PROJECT_SOURCES})
     else()
-        add_executable(QtQuickProcIonosphere ${PROJECT_SOURCES})
+add_executable(QtQuickProcIonosphere ${PROJECT_SOURCES})
     endif()
 endif()
 

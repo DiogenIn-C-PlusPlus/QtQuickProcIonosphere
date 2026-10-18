@@ -4,5 +4,6 @@
         <file>DescriptionInput.qml</file>
         <file>DescriptionChoseVariant.qml</file>
         <file>ActionSearch.qml</file>
+	<file>icons/search.svg</file>
     </qresource>
 </RCC>

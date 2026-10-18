@@ -81,8 +81,8 @@ Window
         DescriptionInput {label_text: "Ширина временного окна:"; clue: "Пр: 900, 1800, 3600"; units : "(с)"}
         DescriptionInput {label_text: "Шаг по частоте:"; clue: "Пр: 1000"; units : "(кГц)"}
         DescriptionChoseVariant {description_text : "Тип гистограммы:"; combo_model: ["Максимальное", "Расширяющие", "Вероятностное"] }
-        DescriptionInput {label_text: "Путь к считыванию данных:"; clue: "/home/user/data/2025_Kipr"; units : ""}
-        DescriptionInput {label_text: "Путь к записи расчетов:"; clue: "/home/user/results/2025_Kipr"; units : ""}
+        ActionSearch {target_text: "Путь к считыванию данных:"; clue: "/home/user/data/2025_Kipr";}
+        ActionSearch {target_text: "Путь к записи расчетов:"; clue: "/home/user/results/2025_Kipr";}
     }
 
     Button
