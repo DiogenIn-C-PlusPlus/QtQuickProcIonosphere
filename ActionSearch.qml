@@ -20,8 +20,12 @@ RowLayout
     TextField
     {
         id : path_file
-        Layout.preferredWidth: 300
+      //  Layout.fillWidth: true          // ← растягиваться на всё место
+        Layout.preferredWidth: 450
         Layout.alignment: Qt.AlignLeft
+        rightPadding: 60
+        ToolTip.visible: hovered && text.length > 0
+        ToolTip.text: text
         background: Rectangle
         {
             color: "white"
@@ -44,7 +48,7 @@ RowLayout
                 anchors.fill: parent
                 cursorShape: Qt.PointingHandCursor
                 onClicked: {
-                    searchPopup.open()
+                    searchWindow.show()
                     //console.log(searchPopup.open(), path_file.text)
                 }
             }
@@ -71,53 +75,23 @@ RowLayout
             onClicked: path_file.clear()
         }
     }
-    Popup
+    SearchWindow
     {
-        id: searchPopup
-        // Центрируем окно по родителю (TextField) или по всему окну
-        anchors.centerIn: Overlay.overlay
-        width: 400
-        height: 300
+        id: searchWindow
 
-        // Модальность: затемняет фон и блокирует клики "сквозь" окно
-        modal: true
-        focus: true
-        // Закрывать по Esc (как в проводнике)
-        closePolicy: Popup.CloseOnEscape
-
-        // Содержимое окна
-        ColumnLayout
+        // Обработчик сигнала: когда файл выбран, обновляем поле в главном окне
+        onFileSelected:
         {
-            anchors.fill: parent
+            showPathOnLabel(path)
+        }
+        onDirectorySelected:
+        {
+            showPathOnLabel(path)
+        }
 
-            // Поле ввода внутри попапа (можно использовать ваше path_file)
-            TextField
-            {
-                id: popupSearchField
-                Layout.fillWidth: true
-                placeholderText: "Поиск..."
-                // Автоматически ставим фокус при открытии
-                Component.onCompleted: forceActiveFocus()
-            }
-
-            // Список результатов (пример)
-            ListView
-            {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                model: ["Результат 1", "Результат 2", "Результат 3"]
-                delegate: ItemDelegate
-                {
-                    width: parent.width
-                    text: modelData
-                    onClicked:
-                    {
-                        // Логика выбора результата
-                        console.log("Выбрано:", modelData)
-                        searchPopup.close()
-                    }
-                }
-            }
+        function showPathOnLabel(path)
+        {
+            path_file.text = path
         }
     }
 }

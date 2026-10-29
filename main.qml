@@ -5,8 +5,9 @@ import QtQuick.Controls 2.0
 Window
 {
     id: base_window
-    width: 640
-    height: 450
+    // objectName: "base_window" связь через С++
+    width:  800
+    height: 440
     visible: true
     title: qsTr("Обработка эмпирических и моделированных данных")
     color: "#FFCC80"
